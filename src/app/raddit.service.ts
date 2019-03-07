@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RadditService {
+  post: any;
 
   constructor(private http: HttpClient) { }
 

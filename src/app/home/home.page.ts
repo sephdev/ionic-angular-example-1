@@ -22,7 +22,8 @@ export class HomePage {
     });
   }
 
-  goToDetail() {
+  goToDetail(post: any) {
+    this.radditService.post = post;
     this.router.navigate(['/detail']);
   }
 

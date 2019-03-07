@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RadditService } from '../raddit.service';
 
 @Component({
   selector: 'app-detail',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
+  post: any;
 
-  constructor() { }
+  constructor(private radditService: RadditService) { }
 
   ngOnInit() {
+    this.post = this.radditService.post;
   }
 
 }
