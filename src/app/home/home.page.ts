@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { RadditService } from '../raddit.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  address: string = '';
+  // address: string = '';
+  posts: object[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private radditService: RadditService) { }
+
+  ngOnInit() {
+    this.radditService.getPosts()
+    .subscribe((response: any) => {
+      // console.log(response.data.children);
+      this.posts = response.data.children;
+    });
+  }
 
   goToDetail() {
     this.router.navigate(['/detail']);
